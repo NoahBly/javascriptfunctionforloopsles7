@@ -1,8 +1,21 @@
+
+
+
 // Je gaat functies schrijven die we kunnen hergebruiken om een lijst met eindcijfers van studenten te checken. Je zult over de cijfers heen moeten itereren (hoe pak je dat aan?),
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+let cumLaude =  0;
+
+for (let i = 0; i < grades.length; i++) {
+    if(grades[i] >= 8) {
+        cumLaude ++
+    }
+}console.log(cumLaude);
+
+
 
 /* Opdracht  1: Cum Laude */
 
@@ -27,7 +40,25 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+const testArray = [];
+const blabla = [6, 4, 5];
+const zaza = [8,9,4,6,10];
+const dada = [8,9,4,6,10,11];
 
+function cumLaudeCounter(testArray) {
+    let amountofCumLaude = 0;
+    for (let i = 0; i < testArray.length; i++) {
+        if(testArray[i] >= 8)  {
+            amountofCumLaude ++
+        }
+    } return amountofCumLaude;
+}
+const pnc = cumLaudeCounter(grades);
+console.log(pnc);
+const mco = cumLaudeCounter(blabla);
+console.log(mco);
+const luc = cumLaudeCounter(zaza);
+console.log(luc);
 
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -41,6 +72,14 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
+let gradeAverage = 0;
+let total = 0;
+
+for( let i = 0; i < grades.length; i++) {
+ total = total + grades[i];
+ } gradeAverage = total / grades.length;
+
+console.log(gradeAverage);
 
 
 /* 2b: Omschrijven tot een herbruikbare functie */
@@ -53,6 +92,23 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+
+const testarray2 = [];
+function avgCalc (testarray2) {
+    let averagearr = 0;
+    let totaal = 0;
+    for(let i =0; i<testarray2.length; i++) {
+        totaal = totaal + testarray2[i];
+    }averagearr = (totaal / testarray2.length);
+    return averagearr.toFixed();
+}
+
+const pnc1 = avgCalc(grades);
+console.log (pnc1);
+const pnc2 = avgCalc(blabla);
+console.log(pnc2);
+const pnc3 = avgCalc(zaza);
+console.log(pnc3);
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
@@ -69,6 +125,7 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Op welke conditie moet ik checken?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
 // Log het antwoord in de terminal.
+console.log(Math.max(...grades));
 
 // ---- Verwachte uitkomst: 9
 
@@ -77,6 +134,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+const testarray3 = [];
+function maxcalc(testarray3) {
+    highestgrade = Math.max(...testarray3);
+
+    return highestgrade;
+}
+
+const pnc5 = maxcalc(grades);
+console.log(pnc5);
+
+const pnc6 = maxcalc(blabla);
+console.log(pnc6);
+
+const pnc7 = maxcalc(zaza);
+console.log(pnc7);
 
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
